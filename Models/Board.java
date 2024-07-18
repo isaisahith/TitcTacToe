@@ -22,6 +22,18 @@ public class Board {
         this.cells = c;
     }
 
+    public void display(){
+        
+        for(int i=0; i<this.getSize(); i++){
+            for(int j=0;j<this.getSize(); j++){
+
+
+                this.cells.get(i).get(j).display();
+            }    
+            System.out.println();       
+        }
+    }
+
     public void setSize(int size){
         this.size = size;
     }

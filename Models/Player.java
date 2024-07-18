@@ -1,15 +1,28 @@
 package Concurrency.TitTacToe.Models;
 
+import java.util.Scanner;
+
 public abstract class Player {
     private long id;
     private String name;
     private Symbol symbol;
     private PlayerType playerType;
+    private Scanner sc = new Scanner(System.in);
 
     public Player(int id, String name, Symbol symbol){
         this.id = id;
         this.name = name;
         this.symbol = symbol;
+    }
+
+    public Move makeMove(Board borad){
+        System.out.println(this.name+", your turn now.");
+        System.out.println("Enter the row: ");
+        int r = sc.nextInt();
+        System.out.println("Enter the column: ");
+        int c = sc.nextInt();
+
+        return new Move(new Cell(r, c), this);
     }
 
     public void setId(long id){
@@ -34,5 +47,13 @@ public abstract class Player {
 
     public Symbol getSymbol(){
         return this.symbol;
+    }
+
+    public void setPlayerType(PlayerType playerType){
+        this.playerType = playerType;
+    }
+
+    public PlayerType getPlayerType(){
+        return this.playerType;
     }
 }

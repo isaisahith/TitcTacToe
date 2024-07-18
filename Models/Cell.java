@@ -13,6 +13,14 @@ public class Cell {
         this.cellState = CellState.EMPTY;
     }
 
+    public void display(){
+        if(this.symbol==null){
+            System.out.print("[ - ]");
+        }else{
+            System.out.print("[ "+ this.symbol.getSymbol()+" ]");
+        }
+    }
+
     public void setRow(int row) {
         this.row = row;
 
